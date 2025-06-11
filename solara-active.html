@@ -32,10 +32,28 @@
             line-height: 1.6;
             color: #fff;
             background: #000;
-            max-width: 800px;
-            margin: 40px 40px;
+            max-width: 1200px;
+            margin: 40px auto;
             padding: 20px;
             font-size: 1.3rem;
+        }
+
+        .main-container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .content {
+            flex: 2;
+            max-width: 700px;
+        }
+
+        .sidebar {
+            flex: 1;
+            max-width: 300px;
+            position: sticky;
+            top: 20px;
         }
 
         h1 {
@@ -173,6 +191,74 @@
         .disclaimer p:last-child {
             margin-bottom: 0;
         }
+
+        .company-overview {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0 30px 0;
+            font-size: 1.1rem;
+        }
+
+        .company-overview h2 {
+            color: #fff;
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .metrics-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .metrics-card h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .metric-label {
+            color: #ccc;
+        }
+
+        .metric-value {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .metric-positive {
+            color: #4ade80;
+        }
+
+        .metric-negative {
+            color: #f87171;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                position: static;
+                max-width: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -203,7 +289,15 @@
         </div>
     </div>
 
-    <h2>HOW THE SCIENCE (FINALLY) DRIVES THE STORY</h2>
+    <div class="company-overview">
+        <h2>About Solara Active Pharma Sciences</h2>
+        <p>Solara Active Pharma Sciences Ltd is an Indian pharmaceutical company specializing in active pharmaceutical ingredients (APIs) and contract development and manufacturing organization (CDMO) services. Carved out from Strides Pharma in 2017, the company has transformed from a commodity ibuprofen manufacturer into a specialized chemistry house focused on high-value therapeutic polymers, ibuprofen derivatives, and high-potency APIs.</p>
+        <p>The company operates manufacturing facilities in Vizag and Cuddalore, with capabilities spanning from basic generics to complex oncology compounds and peptide synthesis. Solara serves both domestic and international markets, with a growing emphasis on custom manufacturing for innovator pharmaceutical companies.</p>
+    </div>
+
+    <div class="main-container">
+        <div class="content">
+            <h2>HOW THE SCIENCE (FINALLY) DRIVES THE STORY</h2>
 
     <h3>1. From Commodity Mill to Chemistry House</h3>
     <p>When Solara was carved out of Strides in 2017 the hard reality was simple: we were a commodity ibuprofen shop plus a handful of tail‑end DMFs that nobody bothered to commercialise. 2021–22 exposed that fragility. As Chinese dumping reversed and plain ibuprofen ASPs collapsed, our largest reactor block at Vizag ran at <30 % utilisation and EBITDA fell into single digits. That near‑death experience forced a philosophical reset that led to the creation of a business built on capability before capacity.</p>
@@ -291,6 +385,99 @@
 
     <h2>FINAL THESIS – WHY I STAY LONG</h2>
     <p>The chemistry platform is finally aligned with a cash‑flow model that pays for itself. All my projections hang on operational metrics that management can actually influence—utilisation, mix, credit terms—rather than macro hope. At 8 × FY 26 OCF the market values Solara as though FY 22's ibuprofen hangover is eternal. I see a business whose gross‑profit pool will double by FY 28 without a single new reactor being welded.</p>
+
+        </div>
+
+        <div class="sidebar">
+            <div class="metrics-card">
+                <h3>Key Metrics (FY25E)</h3>
+                <div class="metric-row">
+                    <span class="metric-label">Market Cap:</span>
+                    <span class="metric-value">₹2,600 cr</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Revenue:</span>
+                    <span class="metric-value">₹1,100 cr</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">EBITDA Margin:</span>
+                    <span class="metric-value metric-positive">19%</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Gross Margin:</span>
+                    <span class="metric-value metric-positive">50.8%</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Net Debt/EBITDA:</span>
+                    <span class="metric-value">1.3x</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">ROE:</span>
+                    <span class="metric-value metric-positive">15%</span>
+                </div>
+            </div>
+
+            <div class="metrics-card">
+                <h3>Business Mix</h3>
+                <div class="metric-row">
+                    <span class="metric-label">Ibuprofen Derivatives:</span>
+                    <span class="metric-value">45%</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Therapeutic Polymers:</span>
+                    <span class="metric-value metric-positive">5%</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">CRAMS/HP-API:</span>
+                    <span class="metric-value metric-positive">10%</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Legacy Generics:</span>
+                    <span class="metric-value">40%</span>
+                </div>
+            </div>
+
+            <div class="metrics-card">
+                <h3>Key Facilities</h3>
+                <div class="metric-row">
+                    <span class="metric-label">Vizag Capacity:</span>
+                    <span class="metric-value">1,000 KL</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Current Utilization:</span>
+                    <span class="metric-value metric-negative">30%</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">FDA Audits (14m):</span>
+                    <span class="metric-value metric-positive">3 Zero OAI</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">HP-API Containment:</span>
+                    <span class="metric-value metric-positive">10 ng/m³</span>
+                </div>
+            </div>
+
+            <div class="metrics-card">
+                <h3>Investment Thesis</h3>
+                <div class="metric-row">
+                    <span class="metric-label">Target Price:</span>
+                    <span class="metric-value metric-positive">₹950</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Upside Potential:</span>
+                    <span class="metric-value metric-positive">100%</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Time Horizon:</span>
+                    <span class="metric-value">FY28</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Risk Level:</span>
+                    <span class="metric-value">Medium-High</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="disclaimer">
         <h3>Disclaimer</h3>
