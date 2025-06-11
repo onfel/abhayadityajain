@@ -52,8 +52,6 @@
         .sidebar {
             flex: 1;
             max-width: 300px;
-            position: sticky;
-            top: 20px;
         }
 
         h1 {
@@ -285,6 +283,10 @@
                     <span class="price-label">Change:</span>
                     <span class="price-change" id="priceChange">Loading...</span>
                 </div>
+                <div class="price-row">
+                    <span class="price-label">Annualized Return:</span>
+                    <span class="price-change" id="annualizedReturn">Loading...</span>
+                </div>
             </div>
         </div>
     </div>
@@ -297,7 +299,7 @@
 
     <div class="main-container">
         <div class="content">
-            <h2>HOW THE SCIENCE (FINALLY) DRIVES THE STORY</h2>
+            <h2>PART I - HOW THE SCIENCE (FINALLY) DRIVES THE STORY</h2>
 
     <h3>1. From Commodity Mill to Chemistry House</h3>
     <p>When Solara was carved out of Strides in 2017 the hard reality was simple: we were a commodity ibuprofen shop plus a handful of tail‑end DMFs that nobody bothered to commercialise. 2021–22 exposed that fragility. As Chinese dumping reversed and plain ibuprofen ASPs collapsed, our largest reactor block at Vizag ran at <30 % utilisation and EBITDA fell into single digits. That near‑death experience forced a philosophical reset that led to the creation of a business built on capability before capacity.</p>
@@ -526,6 +528,8 @@
                     document.getElementById('currentPrice').textContent = 'Unable to fetch';
                     document.getElementById('priceChange').textContent = 'Data unavailable';
                     document.getElementById('priceChange').className = 'price-change neutral';
+                    document.getElementById('annualizedReturn').textContent = 'Data unavailable';
+                    document.getElementById('annualizedReturn').className = 'price-change neutral';
                 }
             }
         }
@@ -534,10 +538,18 @@
             const change = currentPrice - postingPrice;
             const changePercent = ((change / postingPrice) * 100);
             
+            // Calculate annualized return
+            const postingDate = new Date('2025-06-09');
+            const currentDate = new Date();
+            const daysDiff = (currentDate - postingDate) / (1000 * 60 * 60 * 24);
+            const yearsDiff = daysDiff / 365.25;
+            const annualizedReturn = yearsDiff > 0 ? (Math.pow((currentPrice / postingPrice), (1 / yearsDiff)) - 1) * 100 : 0;
+            
             document.getElementById('currentPrice').textContent = `₹${currentPrice.toFixed(2)}`;
             
+            // Update change (percentage only)
             const changeElement = document.getElementById('priceChange');
-            const changeText = `₹${Math.abs(change).toFixed(2)} (${Math.abs(changePercent).toFixed(2)}%)`;
+            const changeText = `${Math.abs(changePercent).toFixed(2)}%`;
             
             if (change > 0) {
                 changeElement.textContent = `+${changeText}`;
@@ -548,6 +560,21 @@
             } else {
                 changeElement.textContent = `${changeText}`;
                 changeElement.className = 'price-change neutral';
+            }
+            
+            // Update annualized return
+            const annualizedElement = document.getElementById('annualizedReturn');
+            const annualizedText = `${Math.abs(annualizedReturn).toFixed(1)}%`;
+            
+            if (annualizedReturn > 0) {
+                annualizedElement.textContent = `+${annualizedText}`;
+                annualizedElement.className = 'price-change positive';
+            } else if (annualizedReturn < 0) {
+                annualizedElement.textContent = `-${annualizedText}`;
+                annualizedElement.className = 'price-change negative';
+            } else {
+                annualizedElement.textContent = `${annualizedText}`;
+                annualizedElement.className = 'price-change neutral';
             }
         }
         
