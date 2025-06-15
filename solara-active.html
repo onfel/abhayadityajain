@@ -32,25 +32,26 @@
             line-height: 1.8;
             color: #fff;
             background: #000;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 40px auto;
-            padding: 40px;
+            padding: 60px;
             font-size: 1.2rem;
         }
 
         .main-container {
             display: block;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .content {
-            max-width: 1000px;
-            margin-bottom: 60px;
+            width: 100%;
+            margin-bottom: 80px;
         }
 
         .sidebar {
             max-width: 1000px;
-            margin-top: 0;
-            margin-left: 0;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
@@ -96,7 +97,7 @@
 
         p {
             margin-bottom: 25px;
-            max-width: 800px;
+            text-align: justify;
         }
 
         a {
@@ -112,8 +113,9 @@
             background: #111;
             border: 1px solid #333;
             border-radius: 8px;
-            padding: 20px;
-            margin: 30px 0;
+            padding: 30px;
+            margin: 40px 0;
+            max-width: 600px;
         }
 
         .stock-symbol {
@@ -200,9 +202,10 @@
             background: #111;
             border: 1px solid #333;
             border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0 30px 0;
+            padding: 30px;
+            margin: 40px 0 50px 0;
             font-size: 1.1rem;
+            line-height: 1.7;
         }
 
         .company-overview h2 {
@@ -255,8 +258,12 @@
 
         @media (max-width: 768px) {
             body {
-                padding: 20px;
+                padding: 30px 20px;
                 font-size: 1.1rem;
+            }
+            
+            .main-container {
+                max-width: none;
             }
             
             h1 {
@@ -276,8 +283,14 @@
                 gap: 20px;
             }
             
-            p {
+            .stock-tracker {
                 max-width: none;
+                margin: 30px 0;
+                padding: 20px;
+            }
+            
+            p {
+                text-align: left;
             }
         }
     </style>

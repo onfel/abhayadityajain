@@ -32,9 +32,9 @@
             line-height: 1.8;
             color: #fff;
             background: #000;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 40px auto;
-            padding: 40px;
+            padding: 60px;
             font-size: 1.2rem;
         }
 
@@ -78,7 +78,7 @@
 
         p {
             margin-bottom: 25px;
-            max-width: 800px;
+            text-align: justify;
         }
 
         a {
@@ -93,11 +93,33 @@
         ul {
             margin-bottom: 25px;
             padding-left: 30px;
-            max-width: 800px;
         }
 
         li {
             margin-bottom: 12px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 20px;
+                font-size: 1.1rem;
+            }
+            
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            h3 {
+                font-size: 1.4rem;
+            }
+            
+            p {
+                text-align: left;
+            }
         }
     </style>
 </head>
