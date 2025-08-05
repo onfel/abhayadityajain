@@ -1,0 +1,7 @@
+# Redirect old .html URLs to clean URLs
+/about-me.html /about-me 301
+/ledger.html /ledger 301
+/laurus-labs.html /laurus-labs 301
+/motilal-oswal.html /motilal-oswal 301
+/solara-active.html /solara-active 301
+/digital-disorder.html /digital-disorder 301
