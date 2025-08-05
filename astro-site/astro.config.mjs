@@ -7,5 +7,13 @@ export default defineConfig({
   trailingSlash: 'ignore',
   build: {
     format: 'directory'
+  },
+  redirects: {
+    '/about-me.html': '/about-me',
+    '/ledger.html': '/ledger',
+    '/laurus-labs.html': '/laurus-labs',
+    '/motilal-oswal.html': '/motilal-oswal',
+    '/solara-active.html': '/solara-active',
+    '/digital-disorder.html': '/digital-disorder'
   }
 });
