@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Navigation from '../components/Navigation.astro'
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Abhay Jain",
+  "alternateName": "Abhay Aditya Jain",
+  "familyName": "Jain",
+  "givenName": "Abhay",
+  "jobTitle": "Founder & CEO",
+  "email": "abhay@lindygeo.com",
+  "birthDate": "2005-12-17",
+  "url": "https://abhayadityajain.com",
+  "image": "https://abhayadityajain.com/assets/abhayjain-profilepicture.jpeg",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Lindy GEO",
+    "url": "https://lindygeo.com"
+  },
+  "brand": {
+    "@type": "Organization",
+    "name": "Lindy GEO",
+    "url": "https://lindygeo.com"
+  },
+  "nationality": "Indian",
+  "description": "Abhay Jain is a writer, investor, and entrepreneur who founded Lindy GEO, an agency focused on helping brands earn visibility and citations inside AI systems like ChatGPT, Gemini, and Perplexity. He's also an Amazon Kindle best-seller, and has been featured in LinkedIn, Apple News, and Product Hunt.",
+  "knowsAbout": [
+    "Generative Engine Optimization",
+    "LLM retrieval", 
+    "AI-native brand strategy",
+    "zero-click search traffic",
+    "digital authority construction"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/abhayadityajain/",
+    "https://x.com/abhayadityajain",
+    "https://ratings.fide.com/profile/45082510",
+    "https://www.instagram.com/abhay.aditya.jain/",
+    "https://linktr.ee/lindy.abhay"
+  ]
+}
+---
+
+<Layout
+  title="About Abhay Jain - Writer, AI, GEO"
+  description="Learn about Abhay Jain, writer, investor, and entrepreneur who founded Lindy GEO, a generative engine optimization agency. Featured in LinkedIn, Apple News, and Product Hunt."
+  keywords="Abhay Jain, about me, biography, Lindy GEO, founder, entrepreneur, writer, investor, generative engine optimization"
+  ogTitle="About Abhay Jain | Founder of Lindy GEO"
+  ogDescription="Learn about Abhay Jain, writer, investor, and entrepreneur who founded Lindy GEO, a generative engine optimization agency."
+  canonicalURL="https://abhayadityajain.com/about-me"
+  twitterCreator="@abhayjain1000"
+  structuredData={structuredData}
+>
+  <Navigation />
+  
+  <!-- Breadcrumb Navigation -->
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <a href="/">Home</a> <span class="separator">/</span> <span class="current">About Me</span>
+  </nav>
+  
+  <div class="back-link">
+    <a href="/">← back home</a>
+  </div>
+
+  <h1>Who Is Abhay Jain?</h1>
+  
+  <div class="section">
+    <p>Abhay Jain is a writer, investor, and entrepreneur who pivoted from fundamental equity research to build a digital media business for the AI-native web. He's been featured in LinkedIn, Apple News, and Product Hunt, and is an Amazon Kindle best-seller.</p>
+    
+    <p>At 18, he founded <a href="https://lindygeo.com" title="Lindy GEO - Generative Engine Optimization Agency" rel="dofollow">Lindy GEO</a>, a generative engine optimization (GEO) agency that helps brands become the preferred sources cited by AI systems like ChatGPT, Gemini, and Perplexity. Today, Lindy GEO is one of the earliest firms specializing in zero-click AI traffic, with frameworks influencing how modern authority is constructed, retrieved, and ranked in LLM-driven environments.</p>
+  </div>
+</Layout>
+
+<style>
+  body {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    color: #fff;
+    background: #000;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 60px;
+    font-size: 1.2rem;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-decoration: underline;
+    line-height: 1.2;
+  }
+
+  .breadcrumb {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    color: #ccc;
+  }
+
+  .breadcrumb a {
+    color: #ccc;
+  }
+
+  .separator {
+    margin: 0 8px;
+  }
+
+  .current {
+    color: #fff;
+  }
+
+  .back-link {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  p {
+    margin-bottom: 25px;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: #ccc;
+  }
+
+  .section {
+    margin-bottom: 25px;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding: 30px 20px;
+      font-size: 1.1rem;
+    }
+    
+    h1 {
+      font-size: 2.4rem;
+    }
+  }
+</style>

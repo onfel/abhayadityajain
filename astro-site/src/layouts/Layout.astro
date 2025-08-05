@@ -1,0 +1,101 @@
+---
+export interface Props {
+  title: string
+  description: string
+  keywords?: string
+  ogTitle?: string
+  ogDescription?: string
+  ogType?: 'website' | 'article'
+  canonicalURL?: string
+  twitterCreator?: string
+  structuredData?: any
+  publishedTime?: string
+  author?: string
+  section?: string
+}
+
+const {
+  title,
+  description,
+  keywords,
+  ogTitle = title,
+  ogDescription = description,
+  ogType = 'website',
+  canonicalURL,
+  twitterCreator = '@abhayadityajain',
+  structuredData,
+  publishedTime,
+  author,
+  section
+} = Astro.props
+
+const url = canonicalURL || new URL(Astro.url.pathname, Astro.site)
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="author" content="Abhay Jain" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={url} />
+    
+    <!-- Article-specific Open Graph -->
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {author && <meta property="article:author" content={author} />}
+    {section && <meta property="article:section" content={section} />}
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content={ogType === 'article' ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:creator" content={twitterCreator} />
+    
+    <!-- Canonical -->
+    <link rel="canonical" href={url} />
+    
+    <!-- Structured Data -->
+    {structuredData && (
+      <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    )}
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVGCC2X53G"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HVGCC2X53G');
+    </script>
+    
+    <!-- Generator -->
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  /* Your existing CSS styles will go here */
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+</style>
